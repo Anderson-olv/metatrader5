@@ -1,27 +1,47 @@
 //+------------------------------------------------------------------+
-//|                                                         main.mq5 |
-//|                                     Copyright 2024, Anderson Vaz |
-//|                      https://github.com/Anderson-olv/metatrader5 |
+//|                             main.mq5 |
+//|                   Copyright 2024, Anderson Vaz |
+//|           https://github.com/Anderson-olv/metatrader5 |
 //+------------------------------------------------------------------+
 #property copyright "Copyright 2024, Anderson Vaz"
-#property link      "https://github.com/Anderson-olv/metatrader5"
-#property version   "Version = 1.00"
-#property script_show_inputs  //Apresenta a janela de parametros
+#property link     "https://github.com/Anderson-olv/metatrader5" // Ponto e vírgula corrigido
+#property version  "1.00"
 //+------------------------------------------------------------------+
-//| main description                                                 |
+//| Expert initialization function                                   |
 //+------------------------------------------------------------------+
-// Parametros
-input int vezes = 10;
 
-// Variável Global
-string nome = "Teste";
-
-
-
+int OnInit()
+  {
+//--- create timer
+   EventSetTimer(60);
+   
+   Print("Estou iniciando o Robo no OnInit!!!");
+//---
+   return(INIT_SUCCEEDED);
+  }
 //+------------------------------------------------------------------+
-//| Script program start function                                    |
+//| Expert deinitialization function                                 |
 //+------------------------------------------------------------------+
-void OnStart()
+void OnDeinit(const int reason)
+  {
+//--- destroy timer
+   EventKillTimer();
+   
+   Print("Estou finalizando o Robo no OnDeinit!!!");
+   
+  }
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+  {
+//---
+   
+  }
+//+------------------------------------------------------------------+
+//| Timer function                                                   |
+//+------------------------------------------------------------------+
+void OnTimer()
   {
 //---
    
